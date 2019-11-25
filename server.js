@@ -1,16 +1,26 @@
 // reads in our .env file and makes those values available as environment variables
 require('dotenv').config();
  
-1
 const routes = require('./routes/main');
 const express = require('express');
 const bodyParser = require('body-parser');
- 
+const secureRoutes = require('./routes/secure');
+const mongoose = require('mongoose');
+
 // create an instance of an express app
 const app = express();
- 
 const PORT = process.env.PORT || 3001;
 
+// setup mongo connection
+const uri = "mongodb://localhost/project_db";
+mongoose.connect(uri, { useNewUrlParser : true, useCreateIndex: true });
+mongoose.connection.on('error', (error) => {
+  console.log(error);
+  process.exit(1);
+});
+mongoose.connection.on('connected', function () {
+  console.log('connected to mongo');
+});
 
 // update express settings
 app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
@@ -26,6 +36,7 @@ app.use((req, res, next) => {
 
 // main routes
 app.use('/', routes);
+app.use('/', secureRoutes);
  
 // handle errors
 app.use((err, req, res, next) => {
