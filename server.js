@@ -34,6 +34,7 @@ app.use((req, res, next) => {
   res.json({ message: '404 - Not Found' });
 });
 
+
 // main routes
 app.use('/', routes);
 app.use('/', secureRoutes);
