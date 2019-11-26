@@ -26,7 +26,7 @@ class App extends Component {
           this.helloWorld = this.add.text(
             this.cameras.main.centerX, 
             this.cameras.main.centerY, 
-            "Hello World", { 
+            "Play Area", { 
               font: "40px Arial", 
               fill: "#ffffff" 
             }
@@ -56,7 +56,7 @@ class App extends Component {
           { !initialize &&
             <React.Fragment>
               <div onClick={this.initializeGame} className="flex">
-                <a href="#1" className="bttn">Initialize</a>
+                <a href="#1" className="bttn">Begin</a>
               </div>
             </React.Fragment>
           }
