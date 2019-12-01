@@ -1,3 +1,8 @@
+import GFS from './GFS.png';
+import crosshair from './crosshair.png';
+import floor from './floor.png';
+import bullet6 from './bullet6.png';
+
 var config = {
     type: Phaser.AUTO,
     parent: 'phaser-example',
@@ -86,13 +91,13 @@ var game = new Phaser.Game(config);
 
 function preload() {
     // Load in images and sprites
-    this.load.spritesheet('player_handgun', 'GFS.png', {
+    this.load.spritesheet('player_handgun', GFS, {
         frameWidth: 66,
         frameHeight: 60
     });
-    this.load.image('target', 'crosshair.png');
-    this.load.image('background', 'floor.png');
-    this.load.image('bullet', 'bullet6.png');
+    this.load.image('target', crosshair);
+    this.load.image('background', floor);
+    this.load.image('bullet', bullet6);
 }
 
 function create() {
