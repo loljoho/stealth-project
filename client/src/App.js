@@ -7,7 +7,10 @@ import Phaser from 'phaser'
 import { IonPhaser } from '@ion-phaser/react'
 import './App.css'
 
-
+import GFS from './components/GFS.png';
+import crosshair from './components/crosshair.png';
+import floor from './components/floor.png';
+import bullet6 from './components/bullet6.png';
 
 var game = new Phaser.Game(game);
 
@@ -15,13 +18,13 @@ var game = new Phaser.Game(game);
 
 function preload() {
   // Load in images and sprites
-  this.load.spritesheet('player_handgun', 'GFS.png', {
+  this.load.spritesheet('player_handgun', GFS, {
       frameWidth: 66,
       frameHeight: 60
   });
-  this.load.image('target', 'crosshair.png');
-  this.load.image('background', 'floor.png');
-  this.load.image('bullet', 'bullet6.png');
+  this.load.image('target', crosshair);
+  this.load.image('background', floor);
+  this.load.image('bullet', bullet6);
 };
 
 function create() {
